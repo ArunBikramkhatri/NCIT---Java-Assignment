@@ -1,4 +1,4 @@
-
+import java.util.InputMismatchException;
 
 public class Paypal extends Payment {
     private String password;
@@ -17,10 +17,15 @@ public class Paypal extends Payment {
      public void setData()
     {
         super.setData();
-        System.out.println("Enter your email");
-        this.email = s.next();
-        System.out.println("Enter the password");
-        this.password = s.next();
+        try {
+            System.out.println("Enter your email");
+            this.email = s.next();
+            System.out.println("Enter the password");
+            this.password = s.next();
+        } catch (InputMismatchException e) {
+            //TODO: handle exception
+        }
+      
     } 
 
     public String getData()

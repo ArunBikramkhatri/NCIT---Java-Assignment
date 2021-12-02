@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Payment{
     private String name;
@@ -9,17 +10,24 @@ public class Payment{
 
     Scanner s = new Scanner(System.in);
 
-    public void setData()
+    public void setData() 
     {
-       System.out.println("\nPlease enter the asked data \n");
-        System.out.println("Enter your full name ??");
-        this.name = s.next();
-        System.out.println("Enter your pin number ??");
-        this.pinNo = s.nextInt();
-        System.out.println("Enter your purpose for billing ??");
-        this.purpose = s.next();
-        System.out.println("Enter the amount ??");
-        this.amount = s.nextInt();
+        try {
+            System.out.println("\nPlease enter the asked data \n");
+            System.out.println("Enter your full name ??");
+            this.name = s.next();
+            System.out.println("Enter your pin number ??");
+            this.pinNo = s.nextInt();
+            System.out.println("Enter your purpose for billing ??");
+            this.purpose = s.next();
+            System.out.println("Enter the amount ??");
+            this.amount = s.nextInt();
+        } catch (InputMismatchException e) {
+            //TODO: handle exception
+            System.out.println("Please enter valid information??\n");
+            System.out.println(e.getMessage());
+        }
+       
         
        
     }
